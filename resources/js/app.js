@@ -39,6 +39,11 @@ Vue.component(
     require("./components/animations/MaterialTransitionComponent.vue").default
 );
 
+Vue.component(
+    "add-to-cart-component",
+    require("./components/products/AddToCartComponent.vue").default
+);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

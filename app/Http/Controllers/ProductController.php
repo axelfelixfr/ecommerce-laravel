@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductsCollection;
 use App\Models\Product;
+use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,9 +19,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Muestra una colección del recurso
     public function index(Request $request)
     {
-        // Muestra una colección del recurso
         $products = Product::paginate(10);
 
         // El método "wantsJson" determina si en la request se espera un resultado en JSON
@@ -38,9 +39,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Mostramos un formulario para crear un nuevo item
     public function create()
     {
-        // Mostramos un formulario para crear un nuevo item
         // Primero instanciamos la clase Product
         $product = new Product;
         // Pasamos la instancia del product para que no de error en el form.blade.php
@@ -53,9 +54,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // Se crea el item almacenando en la base de datos
     public function store(Request $request)
     {
-        // Se crea el item almacenando en la base de datos
         // Realizamos el array que contenga la información del $request
         // El $request contiene la información del formulario que se envio
         $product = [
@@ -80,9 +81,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Mostramos algún item
     public function show($id)
     {
-        // Mostramos algún item
         $product = Product::find($id);
         return view('products.show', ['product' => $product]);
     }
@@ -93,9 +94,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Se muestra un formulario para editar un item
     public function edit($id)
     {
-        // Se muestra un formulario para editar un item
         $product = Product::find($id);
         return view('products.edit', ['product' => $product]);
     }
@@ -107,9 +108,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Se actualiza la información del item
     public function update(Request $request, $id)
     {
-        // Se actualiza la información del item
         // Encontramos el producto al que se debe actualizar
         $product = Product::find($id);
         // Tomando la información que se recogio del formulario, le pasamos cada atributo
@@ -133,9 +134,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Se elimina el item con el id que se le pasa por parámetros
     public function destroy($id)
     {
-        // Se elimina el item con el id que se le pasa por parámetros
         Product::destroy($id);
         return redirect('/products');
     }

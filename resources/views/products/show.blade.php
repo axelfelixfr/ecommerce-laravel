@@ -13,7 +13,11 @@
                     <p class="card-text">{{ $product->description }}</p>
 
                     <div class="card-footer d-flex p-2">
-                        <button type="button" class="btn btn-success">Agregar al carrito</button>
+                        {{-- {!! Form::open(['method' => 'POST', 'url' => '/shopping_cart']) !!}
+                        {!! Form::hidden('product_id', $product->id) !!}
+                        {!! Form::submit('Agregar al carrito', ['class' => 'btn btn-success']) !!}
+                        {!! Form::close() !!} --}}
+                        <add-to-cart-component :product='{!! json_encode($product) !!}'></add-to-cart-component>
                         @include('products.delete')
                     </div>
                 </div>
