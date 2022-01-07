@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <products-component></products-component>
+
+
+        {{-- Con Laravel Blade se podría iterar los productos de la siguiente manera: --}}
+        {{-- <div class="row">
             @foreach ($products as $product)
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="card p-2">
@@ -17,7 +21,7 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
 
         <div class="d-flex justify-content-center">
             {{ $products->links() }}

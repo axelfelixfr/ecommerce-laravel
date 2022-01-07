@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductsCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // Muestra una colección del recurso
         $products = Product::paginate(10);
+
+        // El método "wantsJson" determina si en la request se espera un resultado en JSON
+        if ($request->wantsJson()) {
+            // Retornamos el resultado en JSON
+            // return $products->toJson();
+            return new ProductsCollection($products);
+        }
 
         return view('products.index', ['products' => $products]);
     }
