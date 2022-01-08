@@ -8,6 +8,21 @@ require("./bootstrap");
 
 window.Vue = require("vue").default;
 
+const Vuex = require("vuex").default;
+
+window.store = new Vuex.Store({
+    state: {
+        productsCount: 0,
+    },
+    mutations: {
+        increment(state) {
+            return state.productsCount++;
+        },
+        set(state, value) {
+            return (state.productsCount = value);
+        },
+    },
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -42,6 +57,17 @@ Vue.component(
 Vue.component(
     "add-to-cart-component",
     require("./components/products/AddToCartComponent.vue").default
+);
+
+Vue.component(
+    "cart-counter-component",
+    require("./components/shopping_cart/CartCounterComponent.vue").default
+);
+
+Vue.component(
+    "shopping-cart-products-component",
+    require("./components/shopping_cart/ShoppingCartProductsComponent.vue")
+        .default
 );
 
 /**

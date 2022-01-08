@@ -18,13 +18,13 @@ class ShoppingCart extends Model
         }
     }
 
-    public function getProducts()
+    public function products()
     {
         return $this->belongsToMany(Product::class, 'product_in_shopping_carts');
     }
 
     public function productsCount()
     {
-        return $this->getProducts->count();
+        return $this->products()->count();
     }
 }

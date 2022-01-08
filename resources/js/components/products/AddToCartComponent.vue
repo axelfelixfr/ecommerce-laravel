@@ -28,11 +28,9 @@ export default {
         }
       }).then(() => {
         console.log("Se agrego al carrito");
+        window.store.commit("increment");
       });
     }
   }
 };
 </script>
-
-<style>
-</style>

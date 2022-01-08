@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductInShoppingCartController;
+use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,7 @@ Route::resource('products', ProductController::class);
 Route::resource('shopping_cart', ProductInShoppingCartController::class, [
     "only" => ["store", "destroy"]
 ]);
+
+Route::get('/cart_products', [ShoppingCartController::class, 'show'])->name('cart_products.show');
+
+Route::get('/cart_products/products', [ShoppingCartController::class, 'products'])->name('cart_products.products');

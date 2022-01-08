@@ -43,7 +43,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-link">
-                            {{ $shopping_cart }}
+                            {{-- {{ $shopping_cart }} --}}
+                            <cart-counter-component :count="{{ $shopping_cart }}"></cart-counter-component>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -66,8 +67,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
