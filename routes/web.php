@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductInShoppingCartController;
 use App\Http\Controllers\ShoppingCartController;
@@ -34,3 +35,7 @@ Route::resource('shopping_cart', ProductInShoppingCartController::class, [
 Route::get('/cart_products', [ShoppingCartController::class, 'show'])->name('cart_products.show');
 
 Route::get('/cart_products/products', [ShoppingCartController::class, 'products'])->name('cart_products.products');
+
+Route::get('/payment', [PaymentController::class, 'pay'])->name('payment.pay');
+
+Route::get('/payment/complete', [PaymentController::class, 'execute'])->name('payment.execute');

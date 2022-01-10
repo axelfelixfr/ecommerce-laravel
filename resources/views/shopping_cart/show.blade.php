@@ -22,7 +22,7 @@
                         <img src="/images/paypal.png" width="150" alt="Paypal">
                         <img src="/images/creditcardicons.png" width="150" alt="Credit Cards">
                         <div>
-                            <a href="#" class="btn btn-primary">Proceder a pagar</a>
+                            <a href="/payment" class="btn btn-primary">Proceder a pagar</a>
                         </div>
                     </div>
                 </div>
